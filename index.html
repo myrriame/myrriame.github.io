@@ -1,0 +1,1214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <base href="/">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Myrriame Dosso </title>
+
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <!-- bootstrap -->
+
+    <!-- jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- jQuery -->
+
+    <!-- stylesheet -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <!-- stylesheet -->
+
+    <!-- Google Font-->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Raleway:wght@400&display=swap"
+        rel="stylesheet">
+    <!-- Google Font-->
+
+
+    <!-- tab icon -->
+    <link rel="icon"
+        href="https://github.com/myrriame/myrriame.github.io/blob/main/public/attachments/logo.png?raw=true">
+    <!-- tab icon -->
+
+    <!-- font awesome -->
+    <script src="https://use.fontawesome.com/2fe46feff2.js"></script>
+    <!-- font awesome -->
+
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Roboto+Slab:100,300,400,700');
+        @import url('https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i');
+        @import url('https://fonts.googleapis.com/css2?family=Oswald&family=Space+Mono&display=swap');
+
+
+        * {
+            margin: 0 auto;
+            font-family: 'Raleway', sans-serif;
+        }
+
+        body,
+        html {
+
+            margin: 0 auto;
+            padding: 0;
+
+        }
+
+        body {
+            height: 100px;
+            background-color: rgb(71, 95, 143);
+        }
+
+        #bkg {
+            position: sticky;
+            justify-content: center;
+            align-items: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            animation: animateBg 17s linear infinite;
+            background-image: linear-gradient(45deg, rgb(78, 103, 156), rgb(98, 104, 161), rgb(130, 87, 126), rgb(114, 94, 138), rgb(119, 86, 125), rgb(65, 96, 126), rgb(76, 99, 150), rgb(130, 87, 126), rgb(114, 94, 138), rgb(119, 86, 125), rgb(65, 96, 126), rgb(76, 99, 150), rgb(130, 87, 126), rgb(114, 94, 138), rgb(119, 86, 125), rgb(65, 96, 126), rgb(76, 99, 150));
+            background-size: 100% 1000%;
+            height: auto;
+            width: 100vw;
+        }
+
+        @keyframes animateBg {
+            0% {
+                background-position: 0% 0%;
+            }
+
+            100% {
+                background-position: 0% 100%;
+            }
+        }
+
+        /* nav bar */
+        .navigation {
+            position: fixed;
+            top: 0px;
+            width: 100%;
+            height: 45px;
+            text-align: start;
+            padding-top: 0px;
+            padding-right: 75px;
+            z-index: 1;
+            /* Shadow */
+            -webkit-box-shadow: 0px 0px 2px 0px #000000;
+            -moz-box-shadow: 0px 0px 2px 0px #000000;
+            box-shadow: 0px 0px 2px 0px #000000;
+            /* Transparent */
+            background-image: linear-gradient(15deg, #0e61997e 0%, #b380d09f 100%);
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .navigation a {
+            font-size: 16px;
+            padding-top: 8px;
+            padding-left: 15px;
+            padding-right: 10px;
+            color: #ebe3e3;
+            text-decoration: none;
+        }
+
+        .navigation ul {
+            margin-top: 12px;
+        }
+
+        .navigation ul li {
+            list-style-type: none;
+            display: inline;
+        }
+
+        .navigation li:before {
+            content: " | ";
+            color: rgba(255, 255, 255, 0.11);
+        }
+
+        .navigation li:first-child:before {
+            content: none;
+        }
+
+        .navigation li a:hover {
+            color: #ffffff;
+            font-weight: 600;
+
+        }
+
+        .right ul li img {
+            max-width: 20px;
+        }
+
+        /* nav bar */
+
+        /* project cards */
+
+        .card {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            overflow: hidden;
+            border-radius: 3px;
+            box-shadow: 0px 18px 25px -7px rgba(0, 0, 0, 0.829);
+            transition: all .4s cubic-bezier(0.175, 0.885, .8, 1);
+
+        }
+
+        .card:hover {
+            transform: scale(1.02, 1.02);
+        }
+
+        .card .front {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            transition: .4s;
+        }
+
+        .card .front:after {
+            position: absolute;
+            right: -66px;
+            top: 6px;
+            transform: rotate(45deg);
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            transition: .4s;
+
+        }
+
+        .card:hover .front:after {
+            opacity: 0;
+            overflow: scroll;
+        }
+
+        .back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.788);
+            color: #fff;
+            padding: 5px;
+            display: table;
+            opacity: 0;
+            transition: .4s;
+            transform: translateY(100%);
+            text-align: center;
+
+        }
+
+        .card .front .title-front-card {
+            background-image: linear-gradient(15deg, #0e61997e 0%, #b380d09f 100%);
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            color: rgb(255, 255, 255);
+            text-align: center;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            transition: .3s;
+
+        }
+
+        .back span {
+            vertical-align: middle;
+            text-align: center;
+            font-size: 80%;
+            padding: 4px;
+        }
+
+        .back span ul {
+            padding-left: 0;
+            overflow: scroll;
+            padding: 5px;
+        }
+
+        .back span p {
+
+            padding: 10px;
+        }
+
+        .back span ul li {
+            font-size: 10px;
+            margin: 10px
+        }
+
+        .card:hover .back {
+            opacity: 1;
+            transform: translateY(0);
+            background-image: linear-gradient(15deg, #0e61997e 0%, #b380d09f 100%);
+            overflow: scroll;
+        }
+
+        .card a {
+            color: #c9b4d8b7;
+        }
+
+
+        .card:hover .title-front-card {
+            opacity: 0;
+        }
+
+
+        .language {
+            border: solid #2808427e 1px;
+            font-size: small;
+            border-radius: 2px;
+            background-color: #51137ad8;
+            color: #ffffffcb;
+
+        }
+
+        /* project cards */
+
+        /* about me section */
+        #aboutMe {
+            background-image: url('https://github.com/myrriame/myrriame.github.io/blob/main/public/attachments/BKG3.gif?raw=true');
+            background-repeat: no-repeat;
+            background-size: cover;
+            width: 100%;
+            height: 100%;
+        }
+
+
+        span.blink {
+            animation: blink 1s infinite;
+            color: rgb(0, 0, 0);
+        }
+
+        @keyframes blink {
+            to {
+                opacity: .0;
+            }
+        }
+
+        /* about me section */
+
+        /* contact card/header */
+        .contact {
+            width: 300px;
+            height: 420px;
+            background: #fff;
+            box-shadow: 15px 20px 25px 1px rgba(34, 32, 31, 0.2);
+            padding: 2% 2% 2% 2%;
+            border-radius: 8px;
+        }
+
+        .contactcard {
+            z-index: 1;
+            position: relative;
+            background-color: #ffffff;
+            width: 300px;
+            height: 390px;
+            margin: 0 auto;
+            margin-top: 100px;
+            background-color: rgb(192, 182, 182) -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            -moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            -webkit-transition: all 0.7s ease-in-out;
+            -moz-transition: all 0.7s ease-in-out;
+            -o-transition: all 0.7s ease-in-out;
+            -ms-transition: all 0.7s ease-in-out;
+            border-radius: 4px;
+            -webkit-animation: float-down 1s infinite alternate;
+            -moz-animation: float-down 1s infinite alternate;
+            -ms-animation: float-down 1s infinite alternate;
+            animation: float-down 1s infinite alternate;
+        }
+
+        @keyframes float-down {
+            0% {
+                transform: translate3d(0, 0px, 0);
+            }
+
+            100% {
+                transform: translate3d(0, -5px, 0);
+            }
+        }
+
+        .contactcard.active {
+            height: 440px;
+        }
+
+        .banner {
+            z-index: 2;
+            position: relative;
+            margin-top: -154px;
+            border-radius: 4px;
+            width: 100%;
+            height: 150px;
+            background-image: url("https://images.unsplash.com/photo-1497294815431-9365093b7331?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80");
+            background-size: cover;
+            border-bottom: solid 1px lightgrey;
+
+            -webkit-transition: all 0.7s ease-in-out;
+            -moz-transition: all 0.7s ease-in-out;
+            -o-transition: all 0.7s ease-in-out;
+            -ms-transition: all 0.7s ease-in-out;
+        }
+
+        .banner.active {
+            height: 0;
+
+        }
+
+        .photo {
+            z-index: 3;
+            position: relative;
+            border-radius: 50%;
+            height: 125px;
+            width: 125px;
+            background-color: white;
+            margin: 0 auto;
+            background-image: url("https://github.com/myrriame/myrriame.github.io/blob/main/public/attachments/pp.jpeg?raw=true");
+            background-size: cover;
+            background-position: 50% 50%;
+            top: 75px;
+            -webkit-box-shadow: inset 0px 0px 5px 1px rgba(0, 0, 0, 0.3);
+            -moz-box-shadow: inset 0px 0px 5px 1px rgba(0, 0, 0, 0.3);
+            box-shadow: inset 0px 0px 5px 1px rgba(0, 0, 0, 0.3);
+            -webkit-transition: top 0.7s ease-in-out, background 0.15s ease;
+            -moz-transition: top 0.7s ease-in-out, background 0.15s ease;
+            -o-transition: top 0.7s ease-in-out, background 0.15s ease;
+            -ms-transition: top 0.7s ease-in-out, background 0.15s ease;
+        }
+
+        .photo.active {
+            top: -80px;
+        }
+
+        .contactcard ul {
+            list-style: none;
+            text-align: center;
+            padding-left: 0;
+            margin-top: 87px;
+            margin-bottom: 30px;
+            font-size: 20px;
+            -webkit-transition: all 0.7s ease-in-out;
+            -moz-transition: all 0.7s ease-in-out;
+            -o-transition: all 0.7s ease-in-out;
+            -ms-transition: all 0.7s ease-in-out;
+        }
+
+        .contactcard ul.active {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .contactcard li {
+            font-size: small;
+        }
+
+        .contactcard i {
+            font-size: 25px;
+            display: inline-block;
+            margin-top: 10px;
+            margin-left: 40px;
+            margin-right: 150px;
+            width: 300px;
+            text-align: left;
+            color: #C7D0E1;
+        }
+
+        button.contactinfo {
+            margin: 0 auto;
+            text-align: center;
+            margin-top: -15px;
+            width: 100%;
+            height: 35px;
+            display: block;
+            border: none;
+            background-color: transparent;
+            font-family: inherit;
+            color: white;
+            background-color: #d1c7e1;
+            font-size: 12px;
+            text-transform: uppercase;
+            -webkit-transition: all 0.3s ease-in-out;
+            -moz-transition: all 0.3s ease-in-out;
+            -o-transition: all 0.3s ease-in-out;
+            -ms-transition: all 0.3s ease-in-out;
+        }
+
+        button.contactinfo:hover {
+            cursor: pointer;
+            background-color: #0e61997e;
+        }
+
+        button.info:focus {
+            outline: 0;
+        }
+
+        .social-media-banner {
+            width: 300px;
+            height: 50px;
+            margin-top: 15px;
+            text-align: center;
+            position: absolute;
+            -webkit-transition: all 1.5s ease-in-out;
+            -moz-transition: all 1.5s ease-in-out;
+            -o-transition: all 1.5s ease-in-out;
+            -ms-transition: all 1.5 ease-in-out;
+        }
+
+        .social-media-banner.active {
+            opacity: 0;
+            visibility: hidden;
+            -webkit-transition: all 0.1s ease-in-out;
+            -moz-transition: all 0.1s ease-in-out;
+            -o-transition: all 0.1s ease-in-out;
+            -ms-transition: all 0.1s ease-in-out;
+        }
+
+        .social-media-banner a i {
+            display: inline;
+
+            width: auto;
+            margin-right: 15px;
+            margin-left: 10px;
+            -webkit-transition: all 0.3s ease-in-out;
+            -moz-transition: all 0.3s ease-in-out;
+            -o-transition: all 0.3s ease-in-out;
+            -ms-transition: all 0.3s ease-in-out;
+        }
+
+        .social-media-banner a i:hover {
+            color: #a679c4;
+        }
+
+        .download-form {
+            padding-top: 0px;
+            padding-left: 25px;
+            padding-right: 25px;
+            height: 0;
+            overflow: hidden;
+            width: 300px;
+            z-index: -1;
+            -webkit-transition: all 0.5s ease-in-out;
+            -moz-transition: all 0.5s ease-in-out;
+            -o-transition: all 0.5s ease-in-out;
+            -ms-transition: all 0.5s ease-in-out;
+            transition: all 0.5s ease-in-out;
+        }
+
+        .download-form.active {
+            text-align: center;
+            height: 250px;
+            z-index: 3;
+            -webkit-transition: all 1s ease-in-out;
+            -moz-transition: all 1s ease-in-out;
+            -o-transition: all 1s ease-in-out;
+            -ms-transition: all 1s ease-in-out;
+            transition: all 1s ease-in-out;
+        }
+
+        #pdf {
+            height: 23%;
+            width: 23%;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .download-form button {
+            margin-top: 60px;
+        }
+
+        /* contact card/header */
+
+        #socials {
+            text-align: center;
+        }
+
+        .arrow {
+            box-sizing: border-box;
+            height: 1.5vw;
+            width: 1.5vw;
+            border-style: solid;
+            border-color: white;
+            border-width: 0px 1px 1px 0px;
+            transform: rotate(45deg);
+
+
+        }
+
+        .arrow:hover {
+            border-bottom-width: 3px;
+            border-right-width: 3px;
+        }
+
+        .container {
+            /* display: flex; */
+            align-items: center;
+            justify-content: center;
+            /* height: 100vh; */
+        }
+
+        #footer {
+            color: white;
+            text-align: center;
+            height: 40px;
+        }
+
+        #footer a {
+            cursor: pointer;
+        }
+
+        @media only screen and (max-width: 480px) {
+
+            .navigation {
+                align-content: center;
+                height: 50px;
+
+            }
+
+            .navigation ul li a {
+                font-size: 7.5px;
+                font-weight: bold;
+                float: none;
+
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="wrapper1" class="container-xxl">
+
+        <!-- nav bar -->
+        <nav class="navigation">
+
+            <div class="right">
+                <ul>
+                    <li>
+                        <img
+                            src="https://github.com/myrriame/myrriame.github.io/blob/main/public/attachments/logo.png?raw=true">&nbsp
+                        &nbsp
+                    </li>
+                    <li><a href="#contactMe">CONTACT</a></li>
+                    <li><a href="#projects">PROJECTS</a></li>
+                    <li><a href="#aboutMe">ABOUT ME</a></li>
+
+                </ul>
+            </div>
+        </nav>
+        <!-- nav bar ends-->
+
+
+        <!-- header -->
+
+        <div id="bkg">
+            <div id="contactMe">
+                <br><br><br>
+                <div class="container-fluid">
+                    <div class="contactcard">
+                        <div class="photo"></div>
+                        <div class="banner"></div>
+                        <ul>
+                            <li>
+                                <h6>Myrriame Dosso</h6>
+                            </li>
+                            <li>Software Engineer
+                            </li>
+
+                            <li>Brookyln, NY</li>
+
+                        </ul>
+                        <button class="contactinfo" id="main-button">Take a Look at My Skills & Resume</button>
+                        <div class="social-media-banner">
+                            <a href="https://github.com/myrriame" rel="noopener noreferrer" target="_blank"><i
+                                    class="fa fa-github"></i></a>
+                            <a href="mailto:myrriametd@gmail.com" rel="noopener noreferrer" target="_blank"><i
+                                    class="fa fa-envelope"></i></a>
+                            <a href="https://www.linkedin.com/in/myrriame-dosso-014155162/" rel="noopener noreferrer"
+                                target="_blank"><i class="fa fa-linkedin"></i></a>
+
+                        </div>
+
+                        <form class="download-form">
+
+
+                            <br>
+                            <span class="language"> &nbsp
+                                JavaScript &nbsp</span>&nbsp<span class="language"> &nbsp
+                                NodeJS &nbsp</span>&nbsp<span class="language"> &nbsp
+                                Express &nbsp</span>&nbsp
+                            <br><span class="language"> &nbsp
+                                Redux &nbsp</span>&nbsp<span class="language"> &nbsp
+                                React &nbsp</span>&nbsp<span class="language"> &nbsp
+                                jQuery &nbsp</span>&nbsp<span class="language"> &nbsp
+                                SQL &nbsp</span>&nbsp &nbsp
+                            <br><span class="language"> &nbsp
+                                Typescript &nbsp</span>&nbsp
+
+                            <span class="language"> &nbsp
+                                Sequelize &nbsp</span>&nbsp
+                            <br>
+                            <span class="language"> &nbsp
+                                OpenApi &nbsp</span>&nbsp<span class="language"> &nbsp
+                                Swagger &nbsp</span>&nbsp<span class="language"> &nbsp
+                                AWS &nbsp</span>&nbsp
+                            <br>
+                            <span class="language"> &nbsp
+                                Docker &nbsp</span>&nbsp<span class="language"> &nbsp
+                                Shopify &nbsp</span>&nbsp<span class="language"> &nbsp
+                                Salesforce &nbsp</span>&nbsp
+                            <br>
+                            <span class="language"> &nbsp
+                                Github &nbsp</span>&nbsp<span class="language"> &nbsp
+                                Jest &nbsp</span>&nbsp<span class="language">
+                                ElephantSQL &nbsp</span>&nbsp<br>
+                            <br>
+                            <a href="/Users/myrriamed./port/Myrriame.Dosso_Resume_Updated.pdf"
+                                download="Myrriame_Dosso_Resume">
+                                <img src="https://github.com/myrriame/myrriame.github.io/blob/main/public/attachments/pdf-icon.png?raw=true"
+                                    id="pdf">
+                            </a>
+                        </form>
+
+                    </div>
+                    <br><br>
+                    <div class="container">
+                        <a data-scroll href="#projects">
+                            <div class="arrow"></div>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- header ends -->
+
+            <br><br>
+
+
+            <!-- projects section -->
+            <div id="projects">
+
+                <br>
+
+                <div class="container my-5">
+                    <div class="row">
+
+                        <div class="col-lg-6 col-md-10 col-sm-12 mt-5">
+                            <div class="card">
+                                <div class="front"
+                                    style="background-image: url('https://github.com/myrriame/myrriame.github.io/blob/main/public/attachments/ArtDistrict.gif?raw=true');">
+                                    <div class="title-front-card">
+                                        <span>
+                                            <h6>ART District</h6>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="back">
+                                    <span>
+                                        <a href="https://art-district.herokuapp.com/" class="card_link"
+                                            rel="noopener noreferrer" target="_blank">
+                                            <h3>View Project</h3>
+                                        </a>
+
+                                        <p>Art District is an informative and comprehensive application that creates a
+                                            space for art-lovers and creatives to learn the stories of emerging and
+                                            established artists of color. The app features a variety of art including
+                                            fine art, performance art, photography, music, literary art and culinary
+                                            art. The stack we used consisted of Sequelize, Express, Node and React. My
+                                            role consisted of frontend & design using React and styled components, CRUD
+                                            routes/pinging our API and data sifting/organizing data on the frontend.
+                                        </p>
+                                        <br>
+                                        <span class="language"> &nbsp React &nbsp</span>&nbsp<span class="language">
+                                            &nbsp
+                                            JavaScript </span>&nbsp<span class="language"> Styled Components
+                                        </span>&nbsp<span class="language"> Sequelize </span> &nbsp &nbsp<br><span
+                                            class="language"> NodeJS </span>&nbsp<span class="language"> Express
+                                        </span>&nbsp<span class="language"> ElephantSQL </span>&nbsp<span
+                                            class="language"> Passport
+                                        </span>&nbsp<br><br>
+
+                                        <span>
+                                            <a href="https://github.com/csolis1/capstone-2021" rel="noopener noreferrer"
+                                                target="_blank" style="transform: translate(0px, 0px);"><svg width="24"
+                                                    height="24" viewBox="0 0 24 24" fill="null"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="M12 0C5.374 0 0 5.373 0 12C0 17.302 3.438 21.8 8.207 23.387C8.806 23.498 9 23.126 9 22.81V20.576C5.662 21.302 4.967 19.16 4.967 19.16C4.421 17.773 3.634 17.404 3.634 17.404C2.545 16.659 3.717 16.675 3.717 16.675C4.922 16.759 5.556 17.912 5.556 17.912C6.626 19.746 8.363 19.216 9.048 18.909C9.155 18.134 9.466 17.604 9.81 17.305C7.145 17 4.343 15.971 4.343 11.374C4.343 10.063 4.812 8.993 5.579 8.153C5.455 7.85 5.044 6.629 5.696 4.977C5.696 4.977 6.704 4.655 8.997 6.207C9.954 5.941 10.98 5.808 12 5.803C13.02 5.808 14.047 5.941 15.006 6.207C17.297 4.655 18.303 4.977 18.303 4.977C18.956 6.63 18.545 7.851 18.421 8.153C19.191 8.993 19.656 10.064 19.656 11.374C19.656 15.983 16.849 16.998 14.177 17.295C14.607 17.667 15 18.397 15 19.517V22.81C15 23.129 15.192 23.504 15.801 23.386C20.566 21.797 24 17.3 24 12C24 5.373 18.627 0 12 0Z"
+                                                        fill="#d1c7e1" fill-opacity="0.7"></path>
+                                                </svg></a>
+
+                                        </span>
+
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6 col-md-10 col-sm-12 mt-5">
+                            <div class="card">
+                                <div class="front"
+                                    style="background-image: url('https://github.com/myrriame/myrriame.github.io/blob/main/public/attachments/foodie.gif?raw=true');">
+                                    <div class="title-front-card">
+                                        <span>
+                                            <h6>Foodie ATL</h6>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="back">
+                                    <span>
+                                        <a href="https://foodie-atl.herokuapp.com" class="card_link"
+                                            rel="noopener noreferrer" target="_blank">
+                                            <h3>Still in Production</h3>
+                                        </a>
+
+                                        <p>Foodie ATL is a backend project that incorporates a database
+                                            and
+                                            contains 3 of the CRUD operations. We created our own
+                                            database
+                                            with
+                                            restaurants we'd like to or have already tried in the metro atlanta area. We
+                                            wanted to create an app similar to tinder but with food for those days you
+                                            can't decide where you'd like to
+                                            eat.
+                                            The
+                                            page allows you to swipe left or right on a restuarant and if you're not
+                                            sure
+                                            you
+                                            can
+                                            click on the display image and get more info about the restaurant like a
+                                            photo of
+                                            the
+                                            menu, the price point and the hours of operations. When you find a place
+                                            you'd like to go to you'd like it and
+                                            that
+                                            restaurant
+                                            is added to your favorites list.</p>
+
+
+                                        <span class="language"> &nbsp
+                                            JavaScript </span>&nbsp<span class="language"> Node.js
+                                        </span>&nbsp<span class="language"> CSS
+                                        </span>&nbsp<span class="language"> Bootstrap </span> &nbsp<span
+                                            class="language">&nbsp
+                                            EJS
+                                            &nbsp</span>&nbsp<span class="language"> Sequelize
+                                        </span>&nbsp<br><span class="language"> Express
+                                        </span>&nbsp<span class="language"> ElephantSQL
+                                        </span>&nbsp<span class="language"> Beekeeper
+                                        </span>&nbsp<span class="language"> dbDiagram
+                                        </span>&nbsp<span class="language"> Trello
+                                        </span>&nbsp<br>
+                                        <br>
+                                        <span>
+                                            <a href="https://github.com/jelissa2007/dc-fullstack-project"
+                                                rel="noopener noreferrer" target="_blank"
+                                                style="transform: translate(0px, 0px);"><svg width="24" height="24"
+                                                    viewBox="0 0 24 24" fill="null" xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="M12 0C5.374 0 0 5.373 0 12C0 17.302 3.438 21.8 8.207 23.387C8.806 23.498 9 23.126 9 22.81V20.576C5.662 21.302 4.967 19.16 4.967 19.16C4.421 17.773 3.634 17.404 3.634 17.404C2.545 16.659 3.717 16.675 3.717 16.675C4.922 16.759 5.556 17.912 5.556 17.912C6.626 19.746 8.363 19.216 9.048 18.909C9.155 18.134 9.466 17.604 9.81 17.305C7.145 17 4.343 15.971 4.343 11.374C4.343 10.063 4.812 8.993 5.579 8.153C5.455 7.85 5.044 6.629 5.696 4.977C5.696 4.977 6.704 4.655 8.997 6.207C9.954 5.941 10.98 5.808 12 5.803C13.02 5.808 14.047 5.941 15.006 6.207C17.297 4.655 18.303 4.977 18.303 4.977C18.956 6.63 18.545 7.851 18.421 8.153C19.191 8.993 19.656 10.064 19.656 11.374C19.656 15.983 16.849 16.998 14.177 17.295C14.607 17.667 15 18.397 15 19.517V22.81C15 23.129 15.192 23.504 15.801 23.386C20.566 21.797 24 17.3 24 12C24 5.373 18.627 0 12 0Z"
+                                                        fill="#d1c7e1" fill-opacity="0.7"></path>
+                                                </svg></a>
+
+                                        </span>
+
+                                    </span>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6 col-md-10 col-sm-12 mt-5">
+                            <div class="card">
+                                <div class="front"
+                                    style="background-image: url('https://github.com/myrriame/myrriame.github.io/blob/main/public/attachments/weatherapp.gif?raw=true');">
+                                    <div class="title-front-card">
+                                        <span>
+                                            <h6>WeatherApp</h6>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="back">
+                                    <span>
+                                        <a href="https://silly-poitras-a94bf1.netlify.app/" class="card_link"
+                                            rel="noopener noreferrer" target="_blank">
+                                            <h3>View Project</h3>
+                                        </a>
+
+                                        <p> WeatherApp is an application that uses Open Weather Map's API to display an
+                                            area's temperature based on the users input. The background changes to the
+                                            weather conditions
+                                            of the city searched using if statements. To create this app fetch requests
+                                            were used to retrieve data from the API and some bootstrap for styling. The
+                                            goal was
+                                            to make sure the user could look up a city easily while the appropriate
+                                            information prints to the
+                                            screen.
+                                        </p>
+
+                                        <br><br>
+                                        <span class="language"> &nbsp Project Manager &nbsp</span>&nbsp<span
+                                            class="language">
+                                            &nbsp
+                                            JavaScript </span>&nbsp<span class="language"> CSS
+                                        </span>&nbsp<span class="language"> Bootstrap </span> &nbsp<span
+                                            class="language">&nbsp
+                                            AJAX
+                                            &nbsp</span><br><br>
+
+                                        <span>
+                                            <a href="https://github.com/myrriame/WeatherApp" rel="noopener noreferrer"
+                                                target="_blank" style="transform: translate(0px, 0px);"><svg width="24"
+                                                    height="24" viewBox="0 0 24 24" fill="null"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="M12 0C5.374 0 0 5.373 0 12C0 17.302 3.438 21.8 8.207 23.387C8.806 23.498 9 23.126 9 22.81V20.576C5.662 21.302 4.967 19.16 4.967 19.16C4.421 17.773 3.634 17.404 3.634 17.404C2.545 16.659 3.717 16.675 3.717 16.675C4.922 16.759 5.556 17.912 5.556 17.912C6.626 19.746 8.363 19.216 9.048 18.909C9.155 18.134 9.466 17.604 9.81 17.305C7.145 17 4.343 15.971 4.343 11.374C4.343 10.063 4.812 8.993 5.579 8.153C5.455 7.85 5.044 6.629 5.696 4.977C5.696 4.977 6.704 4.655 8.997 6.207C9.954 5.941 10.98 5.808 12 5.803C13.02 5.808 14.047 5.941 15.006 6.207C17.297 4.655 18.303 4.977 18.303 4.977C18.956 6.63 18.545 7.851 18.421 8.153C19.191 8.993 19.656 10.064 19.656 11.374C19.656 15.983 16.849 16.998 14.177 17.295C14.607 17.667 15 18.397 15 19.517V22.81C15 23.129 15.192 23.504 15.801 23.386C20.566 21.797 24 17.3 24 12C24 5.373 18.627 0 12 0Z"
+                                                        fill="#d1c7e1" fill-opacity="0.7"></path>
+                                                </svg></a>
+
+                                        </span>
+
+
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-10 col-sm-12 mt-5">
+                            <div class="card">
+                                <div class="front"
+                                    style="background-image: url('https://github.com/myrriame/myrriame.github.io/blob/main/public/attachments/tictactoe.gif?raw=true');">
+                                    <div class="title-front-card">
+                                        <span>
+                                            <h6>Tic Tac Toe vs JavaScript</h6>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="back">
+                                    <span>
+                                        <a href="https://competent-swartz-18c948.netlify.app/" class="card_link"
+                                            rel="noopener noreferrer" target="_blank">
+                                            <h3>View Project</h3>
+                                        </a>
+
+                                        <p>Tic Tac Toe vs JavaScript is a fun game created with the intention of playing
+                                            against
+                                            an "AI". Javascript was the main language used. To generate the "AI's" moves
+                                            the
+                                            Math.random and Math.floor functions were used to generate random indexes on
+                                            the
+                                            grid.
+                                            To ensure JavaScript can only play unclicked boxes if/else
+                                            statements
+                                            were
+                                            used.
+                                            The grid boxes were created by using nested for-loops and an event listener
+                                            was
+                                            used
+                                            to
+                                            track
+                                            the users moves. The goal was to create a simple Tic Tac Toe game that keeps
+                                            both
+                                            scores
+                                            and
+                                            notifies the user if they've won, lost or if it's a draw.</p>
+                                        <br>
+                                        <span class="language"> &nbsp Project Manager &nbsp</span>&nbsp<span
+                                            class="language">
+                                            &nbsp
+                                            JavaScript </span>&nbsp<span class="language"> CSS
+                                        </span>&nbsp<span class="language"> Bootstrap </span> &nbsp<br><br>
+
+                                        <span>
+                                            <a href="https://github.com/myrriame/TicTacToe" rel="noopener noreferrer"
+                                                target="_blank" style="transform: translate(0px, 0px);"><svg width="24"
+                                                    height="24" viewBox="0 0 24 24" fill="null"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="M12 0C5.374 0 0 5.373 0 12C0 17.302 3.438 21.8 8.207 23.387C8.806 23.498 9 23.126 9 22.81V20.576C5.662 21.302 4.967 19.16 4.967 19.16C4.421 17.773 3.634 17.404 3.634 17.404C2.545 16.659 3.717 16.675 3.717 16.675C4.922 16.759 5.556 17.912 5.556 17.912C6.626 19.746 8.363 19.216 9.048 18.909C9.155 18.134 9.466 17.604 9.81 17.305C7.145 17 4.343 15.971 4.343 11.374C4.343 10.063 4.812 8.993 5.579 8.153C5.455 7.85 5.044 6.629 5.696 4.977C5.696 4.977 6.704 4.655 8.997 6.207C9.954 5.941 10.98 5.808 12 5.803C13.02 5.808 14.047 5.941 15.006 6.207C17.297 4.655 18.303 4.977 18.303 4.977C18.956 6.63 18.545 7.851 18.421 8.153C19.191 8.993 19.656 10.064 19.656 11.374C19.656 15.983 16.849 16.998 14.177 17.295C14.607 17.667 15 18.397 15 19.517V22.81C15 23.129 15.192 23.504 15.801 23.386C20.566 21.797 24 17.3 24 12C24 5.373 18.627 0 12 0Z"
+                                                        fill="#d1c7e1" fill-opacity="0.7"></path>
+                                                </svg></a>
+
+                                        </span>
+
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-10 col-sm-12 mt-5">
+                            <div class="card">
+                                <div class="front"
+                                    style="background-image: url('https://github.com/myrriame/myrriame.github.io/blob/main/public/attachments/todolist.gif?raw=true');">
+                                    <div class="title-front-card">
+                                        <span>
+                                            <h6>To-Do List</h6>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="back">
+                                    <span>
+                                        <a href="https://angry-jennings-86fc70.netlify.app/" class="card_link"
+                                            rel="noopener noreferrer" target="_blank">
+                                            <h3>View Project</h3>
+                                        </a>
+
+                                        <p>A to-do list that allows the user to type up a task and remove or strike
+                                            through
+                                            the
+                                            task
+                                            when completed.
+                                            This
+                                            project utilized JavaScript, local storage and CSS. The goal was to create
+                                            an
+                                            app
+                                            that I
+                                            could use on a daily basis and have some fun with CSS.</p>
+                                        <br><br>
+                                        <span class="language"> &nbsp Solo Project &nbsp</span>&nbsp<span
+                                            class="language">
+                                            &nbsp
+                                            JavaScript </span>&nbsp<span class="language"> CSS
+                                        </span>&nbsp<span class="language"> Local Storage </span> &nbsp<br><br>
+
+                                        <span>
+                                            <a href="https://github.com/myrriame/todo-list" rel="noopener noreferrer"
+                                                target="_blank" style="transform: translate(0px, 0px);"><svg width="24"
+                                                    height="24" viewBox="0 0 24 24" fill="null"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="M12 0C5.374 0 0 5.373 0 12C0 17.302 3.438 21.8 8.207 23.387C8.806 23.498 9 23.126 9 22.81V20.576C5.662 21.302 4.967 19.16 4.967 19.16C4.421 17.773 3.634 17.404 3.634 17.404C2.545 16.659 3.717 16.675 3.717 16.675C4.922 16.759 5.556 17.912 5.556 17.912C6.626 19.746 8.363 19.216 9.048 18.909C9.155 18.134 9.466 17.604 9.81 17.305C7.145 17 4.343 15.971 4.343 11.374C4.343 10.063 4.812 8.993 5.579 8.153C5.455 7.85 5.044 6.629 5.696 4.977C5.696 4.977 6.704 4.655 8.997 6.207C9.954 5.941 10.98 5.808 12 5.803C13.02 5.808 14.047 5.941 15.006 6.207C17.297 4.655 18.303 4.977 18.303 4.977C18.956 6.63 18.545 7.851 18.421 8.153C19.191 8.993 19.656 10.064 19.656 11.374C19.656 15.983 16.849 16.998 14.177 17.295C14.607 17.667 15 18.397 15 19.517V22.81C15 23.129 15.192 23.504 15.801 23.386C20.566 21.797 24 17.3 24 12C24 5.373 18.627 0 12 0Z"
+                                                        fill="#d1c7e1" fill-opacity="0.7"></path>
+                                                </svg></a>
+
+                                        </span>
+
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6 col-md-10 col-sm-12 mt-5">
+                            <div class="card">
+                                <div class="front"
+                                    style="background-image: url('https://github.com/myrriame/myrriame.github.io/blob/main/public/attachments/cocktailsandquotes.gif?raw=true');">
+                                    <div class="title-front-card">
+                                        <span>
+                                            <h6>Cocktails & Quotes</h6>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="back">
+                                    <span>
+                                        <a href="https://sad-snyder-9636a4.netlify.app/" class="card_link"
+                                            rel="noopener noreferrer" target="_blank">
+                                            <h3>View Project</h3>
+                                        </a>
+
+                                        <p> Cocktails & Quotes was a front-end project where 2 API's were used to create
+                                            a
+                                            fun
+                                            responsive app
+                                            that allows you to make a drink and read Ron Swanson Quotes with your
+                                            friends.
+                                            AJAX/fetch was
+                                            used to fetch the drinks/ingredients when the user searched for a specific
+                                            drink name like 'Margarita'. Error
+                                            handling
+                                            was
+                                            also
+                                            incorporated for cases of unknown or misspelled drinks. I was in charge of
+                                            connecting
+                                            both API's, printing out all drink options with their designated ingredients
+                                            and
+                                            measurements and website responsiveness/design.</p>
+                                        <br>
+                                        <span class="language"> &nbsp Project Manager &nbsp</span> <span
+                                            class="language">
+                                            &nbsp
+                                            JavaScript </span>&nbsp<span class="language"> CSS
+                                        </span>&nbsp<span class="language"> Bootstrap </span> &nbsp<span
+                                            class="language">&nbsp
+                                            AJAX
+                                            &nbsp</span><br><br>
+
+                                        <span>
+                                            <a href="https://github.com/myrriame/cocktails-and-quotes"
+                                                rel="noopener noreferrer" target="_blank"
+                                                style="transform: translate(0px, 0px);"><svg width="24" height="24"
+                                                    viewBox="0 0 24 24" fill="null" xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="M12 0C5.374 0 0 5.373 0 12C0 17.302 3.438 21.8 8.207 23.387C8.806 23.498 9 23.126 9 22.81V20.576C5.662 21.302 4.967 19.16 4.967 19.16C4.421 17.773 3.634 17.404 3.634 17.404C2.545 16.659 3.717 16.675 3.717 16.675C4.922 16.759 5.556 17.912 5.556 17.912C6.626 19.746 8.363 19.216 9.048 18.909C9.155 18.134 9.466 17.604 9.81 17.305C7.145 17 4.343 15.971 4.343 11.374C4.343 10.063 4.812 8.993 5.579 8.153C5.455 7.85 5.044 6.629 5.696 4.977C5.696 4.977 6.704 4.655 8.997 6.207C9.954 5.941 10.98 5.808 12 5.803C13.02 5.808 14.047 5.941 15.006 6.207C17.297 4.655 18.303 4.977 18.303 4.977C18.956 6.63 18.545 7.851 18.421 8.153C19.191 8.993 19.656 10.064 19.656 11.374C19.656 15.983 16.849 16.998 14.177 17.295C14.607 17.667 15 18.397 15 19.517V22.81C15 23.129 15.192 23.504 15.801 23.386C20.566 21.797 24 17.3 24 12C24 5.373 18.627 0 12 0Z"
+                                                        fill="#d1c7e1" fill-opacity="0.7"></path>
+                                                </svg></a>
+
+                                        </span>
+
+                                    </span>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6 col-md-10 col-sm-12 mt-5">
+                            <div class="card">
+
+                                <div class="front"
+                                    style="background-image: url('https://github.com/myrriame/myrriame.github.io/blob/main/public/attachments/horoscope-sim.gif?raw=true');">
+                                    <div class="title-front-card">
+                                        <span>
+                                            <h6>Horoscope App</h6>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="back">
+                                    <span>
+                                        <a href="https://horoscope-simulator.netlify.app/" class="card_link"
+                                            rel="noopener noreferrer" target="_blank">
+                                            <h3>View Project</h3>
+                                        </a>
+
+                                        <p> The Horoscope Simulator App was an app created by a close friend and I. We
+                                            wanted to
+                                            come up with an idea and worked together to create it using AJAX/Fetch &
+                                            JavaScript.
+                                            We
+                                            used the
+                                            Aztros API which came with not only daily horoscopes but colors of the day
+                                            and
+                                            moods
+                                            based on the user's
+                                            zodiac sign. This was a fun project that helped us get familiar with API's
+                                            and
+                                            project
+                                            managing. </p>
+                                        <br><br>
+                                        <span class="language"> &nbsp JavaScript </span>&nbsp<span class="language"> CSS
+                                        </span> &nbsp<span class="language">&nbsp AJAX/Fetch
+                                            &nbsp</span><br><br>
+
+                                        <span>
+                                            <a href="https://github.com/Jaylabull/HoroscopeSimulator"
+                                                rel="noopener noreferrer" target="_blank"
+                                                style="transform: translate(0px, 0px);"><svg width="24" height="24"
+                                                    viewBox="0 0 24 24" fill="null" xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="M12 0C5.374 0 0 5.373 0 12C0 17.302 3.438 21.8 8.207 23.387C8.806 23.498 9 23.126 9 22.81V20.576C5.662 21.302 4.967 19.16 4.967 19.16C4.421 17.773 3.634 17.404 3.634 17.404C2.545 16.659 3.717 16.675 3.717 16.675C4.922 16.759 5.556 17.912 5.556 17.912C6.626 19.746 8.363 19.216 9.048 18.909C9.155 18.134 9.466 17.604 9.81 17.305C7.145 17 4.343 15.971 4.343 11.374C4.343 10.063 4.812 8.993 5.579 8.153C5.455 7.85 5.044 6.629 5.696 4.977C5.696 4.977 6.704 4.655 8.997 6.207C9.954 5.941 10.98 5.808 12 5.803C13.02 5.808 14.047 5.941 15.006 6.207C17.297 4.655 18.303 4.977 18.303 4.977C18.956 6.63 18.545 7.851 18.421 8.153C19.191 8.993 19.656 10.064 19.656 11.374C19.656 15.983 16.849 16.998 14.177 17.295C14.607 17.667 15 18.397 15 19.517V22.81C15 23.129 15.192 23.504 15.801 23.386C20.566 21.797 24 17.3 24 12C24 5.373 18.627 0 12 0Z"
+                                                        fill="#d1c7e1" fill-opacity="0.7"></path>
+                                                </svg></a>
+
+                                        </span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+
+                    </div>
+                </div>
+                <br><br><br>
+            </div>
+        </div>
+        <!-- projects section ends -->
+
+
+
+
+        <!-- about me section -->
+
+        <div class-"container-fluid">
+            <div id="aboutMe">
+                <br><br><br><br><br><br>
+
+
+
+                <blockquote class="twitter-tweet">
+                    <p lang="en" dir="ltr">Hi! I&#39;m Myrriame! Excited to have completed my first year as a software
+                        engineer at my current company! I’ve gained so much knowledge and I’m eager to continue growing.
+                        <br>New Location: Brooklyn, NY
+                    </p>&mdash; MD (@MyrriameDev) <a
+                        href="https://twitter.com/MyrriameDev/status/1651388929507983360?ref_src=twsrc%5Etfw">April 27,
+                        2023</a>
+                </blockquote>
+                <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+                </span>
+                <br><br><br>
+
+                <!-- footer -->
+                <br><br><br>
+
+
+                <div id="footer">
+                    Crafted with &hearts; by Myrriame Dosso<br>
+                    <a href="https://github.com/myrriame" rel="noopener noreferrer" target="_blank"><span
+                            style="font-size: 2em; color: white;"><i class="fa fa-github-square"></i></span></a>&nbsp
+                    <a href="mailto:myrriametd@gmail.com" rel="noopener noreferrer" target="_blank"> <span
+                            style="font-size: 2em; color: white;"><i class="fa fa-envelope-square">
+                            </i></span></a>
+
+
+
+                </div>
+                <br><br>
+            </div>
+
+
+
+
+        </div>
+
+    </div>
+
+
+
+    <!-- footer -->
+
+    <script>
+        $(document).ready(function () {
+            $('a[href^="#"]').on('click', function (e) {
+                e.preventDefault();
+
+                var target=this.hash;
+                var $target=$(target);
+
+                $('html, body').stop().animate({
+                    'scrollTop': $target.offset().top
+                }, 900, 'swing', function () {
+                    window.location.hash=target;
+                });
+            });
+        });
+
+        $(document).ready(function () {
+            $('.contactinfo').click(function (e) {
+                $('.contactcard').toggleClass('active');
+                $('.banner').toggleClass('active');
+                $('.photo').toggleClass('active');
+                $('.social-media-banner').toggleClass('active');
+                $('.download-form').toggleClass('active');
+                var buttonText=$('button.contactinfo#main-button').text();
+
+                if (buttonText==='back') {
+                    buttonText='Take a Look at My Skills & Resume';
+                    $('button.contactinfo#main-button').text(buttonText);
+                }
+                else {
+                    buttonText='back';
+                    $('button.contactinfo#main-button').text(buttonText);
+                }
+            }
+
+            );
+        }
+
+        );
+
+    </script>
+
+</body>
+
+</html>
